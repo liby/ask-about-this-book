@@ -2,9 +2,9 @@
 
 require 'rails_helper'
 
-RSpec.describe "hello_world", **{ type: :system, js: true } do
+RSpec.describe "ask_my_book", **{ type: :system, js: true } do
   it 'loads correct view' do
-    visit '/hello_world'
+    visit '/ask_my_book'
     expect(page).to have_content 'Hello, World!'
     expect(page).to have_content 'Hello, Stranger from MDX!'
   end
