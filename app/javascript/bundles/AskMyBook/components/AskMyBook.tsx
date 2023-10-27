@@ -10,12 +10,40 @@ const options = [
 
 const getRandomQuestion = () => options[Math.floor(Math.random() * options.length)];
 
-const AskMyBook = () => {
+interface Props {
+  csrfToken: string;
+}
+
+const AskMyBook = ({
+  csrfToken
+}: Props) => {
   const [randomQuestion, setRandomQuestion] = useState("What is The Minimalist Entrepreneur about?");
+  const [answer, setAnswer] = useState("");
+  const [isAnswerHidden, setIsAnswerHidden] = useState(true);
 
   const handleLuckyButtonClick = () => {
     setRandomQuestion(getRandomQuestion());
   }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const question = formData.get('question');
+  
+    const response = await fetch('/api/ask', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': csrfToken
+      },
+      body: JSON.stringify({ question }),
+    });
+  
+    const data = await response.json();
+    setAnswer(data.answer);
+    setIsAnswerHidden(false);
+  };
+  
 
   const { header, logo, main, credits, buttons, luckyButton, hidden, askAnotherButton } = styles;
 
@@ -31,16 +59,18 @@ const AskMyBook = () => {
       </div>
       <div className={main}>
         <p className={credits} xt-marked="ok">This is an experiment in using AI to make my book's content more accessible. Ask a question and AI'll answer it in real-time:</p>
-        <form action="/ask" method="post">
+        <form action="/ask" method="post" onSubmit={handleSubmit}>
           <textarea name="question" id="question" defaultValue={randomQuestion} />
           <div className={buttons}>
             <button type="submit" id="ask-button" xt-marked="ok">Ask question</button>
             <button type='button' id="lucky-button" xt-marked="ok" className={luckyButton} onClick={handleLuckyButtonClick}>I'm feeling lucky</button>
           </div>
         </form>
-        <p id="answer-container" className={hidden}>
+        <p className={isAnswerHidden && hidden}>
           <strong xt-marked="ok">Answer:</strong>
-          <span id="answer"></span>
+          <span>
+            {answer}
+          </span>
           <button id="ask-another-button" className={askAnotherButton} xt-marked="ok">Ask another question</button>
         </p>
       </div>
