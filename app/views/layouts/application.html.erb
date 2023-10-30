@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TestReactOnRailsV12SsrV2</title>
+    <title>Book Q&A: The Little Prince</title>
+    <meta name="csrf-token" content="<%= form_authenticity_token %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= javascript_pack_tag 'ask-about-this-book-bundle' %>
+    <%= stylesheet_pack_tag 'ask-about-this-book-bundle' %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>

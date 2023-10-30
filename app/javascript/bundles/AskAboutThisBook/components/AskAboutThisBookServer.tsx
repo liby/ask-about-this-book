@@ -1,5 +1,5 @@
-import AskMyBook from './AskMyBook'
+import AskAboutThisBook from './AskAboutThisBook'
 // This could be specialized for server rendering
 // For example, if using React-Router, we'd have the SSR setup here.
 
-export default AskMyBook
+export default AskAboutThisBook
