@@ -60,5 +60,10 @@ gem "net-smtp", "~> 0.3.3"
 # addressed in Rails 7. So remove this the next line in Rails 7.
 gem 'psych', '< 4'
 
-gem 'ruby-openai', '~> 5.1'
+gem "ruby-openai", "~> 4.0"
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'json', '~> 2.6', '>= 2.6.3'
+gem 'tokenizers', '~> 0.4.1'
+gem 'pdf-reader', '~> 2.11'
+gem 'cosine-similarity', '~> 1.0'
+
