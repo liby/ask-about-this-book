@@ -2,6 +2,17 @@
 
 class MainController < ApplicationController
   def index
-    @props = { csrfToken: form_authenticity_token }
+    @question = Question.find_by(id: params[:id])
+    if @question
+      @serialized_question = {
+        id: @question.id,
+        question: @question.question,
+        answer: @question.answer,
+      }
+    end
+    @props = { 
+      csrfToken: form_authenticity_token, 
+      focusedQuestion: @serialized_question 
+    }
   end
 end

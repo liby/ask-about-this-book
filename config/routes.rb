@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :questions, only: [:create, :show, :index]
-
   post '/api/ask', to: 'questions#ask'
+
+  get '/questions/:id', to: 'main#index'
 
   root 'main#index'
 
