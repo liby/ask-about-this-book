@@ -28,9 +28,10 @@ const AskAboutThisBook = ({
 }: Props) => {
   const [initialQuestion, setInitialQuestion] = useState<string>(focusedQuestion?.question ?? "Why did the Little Prince leave his planet?");
   const [answer, setAnswer] = useState<string | null>(focusedQuestion?.answer ?? null);
-  const [isRequesting, setIsRequesting] = useState<boolean>(false);
   const [displayedAnswer, setDisplayedAnswer] = useState<string>("");
+  const [isRequesting, setIsRequesting] = useState<boolean>(false);
   const [displayAskAnotherButton, setDisplayAskAnotherButton] = useState<boolean>(false);
+
   const [charIndex, setCharIndex] = useState(0);
   const [cachedData, setCachedData] = useState<Question[]>([]);
 

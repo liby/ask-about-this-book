@@ -5,6 +5,15 @@ class QuestionsController < ApplicationController
   before_action :initialize_services, only: [:ask]
   before_action :find_existing_question, only: [:ask]
 
+  def db
+    @answered_questions_count = Question.where.not(answer: nil).count
+    @questions = Question.all
+    @props = { 
+      answeredQuestionsCount: @answered_questions_count, 
+      questions: @questions
+    }
+  end
+
   def ask
     cached_answer = retrieve_answer_from_cache
 
