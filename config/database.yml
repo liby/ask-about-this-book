@@ -22,18 +22,18 @@ default: &default
 
 development:
   <<: *default
-  database: mysite_development
+  database: ask_about_this_book_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: mysite_test
+  database: ask_about_this_book_test
 
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
-  database: mysite_production
-  username: mysite
+  database: ask_about_this_book_production
+  username: ask_about_this_book_user
   password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
