@@ -8,9 +8,13 @@ const defaultQuestions = [
   "What significance do the various planets the Little Prince visits hold in the narrative?"
 ]
 
-const getRandomQuestion = () => defaultQuestions[
-  Math.floor(Math.random() * defaultQuestions.length)
-];
+const getRandomQuestion = (currentQuestion) => {
+  let questionsWithoutCurrent = defaultQuestions.filter(q => q !== currentQuestion);
+  return questionsWithoutCurrent[
+    Math.floor(Math.random() * questionsWithoutCurrent.length)
+  ];
+};
+
 
 interface Question {
   id: number,
@@ -42,7 +46,8 @@ const AskAboutThisBook = ({
   const handleLuckyButtonClick = () => {
     setAnswer(null);
     setIsRequesting(false);
-    setInitialQuestion(getRandomQuestion());
+    const newQuestion = getRandomQuestion(initialQuestion);
+    setInitialQuestion(newQuestion);
     
     handleSubmit();
   };
