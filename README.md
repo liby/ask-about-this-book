@@ -9,14 +9,12 @@
 - [Script processes PDFs into vector representations](https://github.com/liby/ask-about-this-book/blob/master/scripts/pdf_to_vector_processor.rb), storing results in a single JSON file for efficient search.
 - Utilized [ruby-openai](https://github.com/alexrudall/ruby-openai) gem to streamline interactions with OpenAI API.
 - Implemented frontend caching to reduce API calls, enhancing responsiveness.
+- Integrated Trestle Authentication to provide a robust and streamlined authentication system for the admin interface.
 
 ## Areas for Improvement
 
 - Currently, there's a noticeable flicker every time the page is refreshed. This aspect needs optimization.
 - Consider using CSS-in-JS solutions or Tailwind CSS, which can provide more dynamic and componentized styles.
-- Encountered some [compatibility issues while attempting to install ActiveAdmin](https://github.com/activeadmin/activeadmin/issues/6834), which has temporarily halted the integration of backend administration framework. 
-   - This poses a risk in terms of managing the data and content effectively on the platform.
-- Current `db` page lacks proper authentication mechanisms. Potentially exposing sensitive data and administrative functions.
 - Plan to replace the current frontend-simulated API streaming with genuine Rails-based server-side streaming.
 - Introduce unit and integration tests for both client and server sides to uphold coding standards and identify potential pitfalls.
 

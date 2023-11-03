@@ -3,8 +3,7 @@ Rails.application.routes.draw do
 
   get '/questions/:id', to: 'main#index'
 
-  # TODO: Add user authentication before re-enabling this route.
-  # get '/db', to: 'questions#db'
+  get '/db', to: redirect('/admin/questions')
 
   root 'main#index'
 

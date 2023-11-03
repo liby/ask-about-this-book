@@ -67,3 +67,6 @@ gem 'tokenizers', '~> 0.4.1'
 gem 'pdf-reader', '~> 2.11'
 gem 'cosine-similarity', '~> 1.0'
 
+
+gem "trestle", "~> 0.9.8"
+gem "trestle-auth", "~> 0.4.4"
