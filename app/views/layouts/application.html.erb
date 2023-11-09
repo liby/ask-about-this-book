@@ -2,9 +2,11 @@
 <html>
   <head>
     <title>Book Q&A: The Little Prince</title>
-    <meta name="csrf-token" content="<%= form_authenticity_token %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <%= javascript_pack_tag 'ask-about-this-book-bundle' %>
     <%= stylesheet_pack_tag 'ask-about-this-book-bundle' %>
   </head>
